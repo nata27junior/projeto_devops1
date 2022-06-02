@@ -1,0 +1,33 @@
+Server=localhost\MSSQLSERVER01;Database=master;Trusted_Connection=True;
+Server=localhost\MSSQLSERVER01;Database=master;Trusted_Connection=True;
+
+"Data Source=DESKTOP-HK9S5K7\\MSSQLSERVER01; Initial Catalog=LanchesDatabase;Integrated Security=True"
+
+DESKTOP-HK9S5K7\MSSQLSERVER
+DESKTOP-HK9S5K7\MSSQLSERVER01
+MSSQLSERVER
+MSSQLSERVER
+
+add-migration MigracaoInicial 
+Remove-Migration
+update-database
+
+Install-Package ReflectionIT.Mvc.Paging
+
+
+
+poweshell
+dotnet new mvc --auth Individual -o projeto_devops4 -f net6.0
+dotnet new mvc --auth Individual -o C:\Users\Natanael\Desktop\projeto\projeto_tivit/projeto_devops4 -f net6.0
+dotnet clean
+dotnet build
+dotnet add package Microsoft.VisualStudio.Web.CodeGereration.Desing
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet-aspnet-codegenerator controller -name TodoController -dc ApplicationDbContext -m Todo --useDefaultLayout --useSqlite --referenceScriptLibraries
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add CreateTodoTable
+dotnet ef database update
+
+
+aplicação sempre rodando
+dotnet watch run
